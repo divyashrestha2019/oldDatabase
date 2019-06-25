@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:image_picker/image_picker.dart';
 
-
 class Profile extends StatefulWidget {
   static const String id = 'profile_screen';
   @override
@@ -11,7 +10,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
 
-  final _image;
+  var _image;
   final GlobalKey<FormBuilderState> _fbKey = GlobalKey<FormBuilderState>();
   Future getImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -20,6 +19,7 @@ class _ProfileState extends State<Profile> {
     });
   }
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -55,13 +55,10 @@ class _ProfileState extends State<Profile> {
               Column(
                 children: <Widget>[
                   Container(
-                    child: Image(image: AssetImage('images/profile.png')),
+                     child: _image == null ? Image(image: AssetImage('images/profile.png')):
+                     Image.file(_image,width: 400.0,height: 250.0,fit: BoxFit.cover,),
                   ),
-                  Container(
-                    child: _image == null
-                    ? Text('No image SElected.')
-                    :Image.file(_image),
-                  ),
+
                   FloatingActionButton(
                     onPressed: getImage,
                     tooltip: 'Pick Image',
@@ -74,7 +71,6 @@ class _ProfileState extends State<Profile> {
                 key: _fbKey,
                 child: Column(
                   children: <Widget>[
-                    const SizedBox(height: 24.0),
                     FormBuilderTextField(
                       attribute: "name",
                       decoration: const InputDecoration(

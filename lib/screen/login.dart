@@ -3,6 +3,7 @@ import 'package:database/layout/rounded_button.dart';
 import 'package:database/layout/constant.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:database/screen/forgot.dart';
+import 'package:database/screen/sonatech.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -36,13 +37,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text('Delta',
+                      Text('WOW',
                         style: TextStyle(
                           color: Colors.green,
                           fontSize: 30.0,
                         ),
                       ),
-                      Text('SalesCRM',
+                      Text('DealMaster',
                         style: TextStyle(
                           color: Colors.deepOrangeAccent,
                           fontSize: 30.0,
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   title: 'Login',
                   colour: Colors.lightBlueAccent,
                   onPressed: () {
-                    Navigator.pushNamed(context, ForgotScreen.id);
+                    Navigator.pushNamed(context, Sonatech.id);
                   },
                 )
               ],

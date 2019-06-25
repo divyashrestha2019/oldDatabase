@@ -1,44 +1,216 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Search extends StatelessWidget {
   static const String id = 'search_screen';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Search contach'),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.search),
-              onPressed: (){
-                  showSearch(context: context, delegate: DataSearch());
-                  }),
-            ],
-       ),
-      drawer: Drawer(
-        child: ProductAdmin(),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+          length: 2,
+          child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Color(0xff108F87),
+              title: Padding(
+                padding: const EdgeInsets.only(top: 11.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    prefixIcon: IconButton(
+                      icon: Icon(Icons.search),
+                      onPressed: () {
+                        showSearch(context: context, delegate: DataSearch());
+                      },
+                    ),
+                      suffixIcon: IconButton(
+                          icon: Icon(FontAwesomeIcons.filter),
+                          onPressed: () {
+                            debugPrint('okay');
+                          }),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xff108F87)),
+                      borderRadius: BorderRadius.circular(15.7),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xff108F87)),
+                      borderRadius: BorderRadius.circular(15.7),
+                    ),
+                  ),
+                  textInputAction: TextInputAction.search,
+                ),
+              ),
+              bottom: TabBar(
+                tabs: [
+                  Tab(
+                    text: "People",
+                  ),
+                  Tab(
+                    text: "organization",
+                  ),
+                ],
+              ),
+            ),
+            body: TabBarView(children: [
+              getPeople(),
+              getOrganization(),
+            ]),
+          )),
     );
   }
 }
 
+Widget getPeople() {
+  var listView = ListView(
+    children: <Widget>[
+      ListTile(
+        leading: Icon(
+          Icons.person,
+          color: Colors.black,
+          size: 40.0,
+        ),
+        title: Text('Vagwan Mandal'),
+        subtitle: Text(
+          'Deltatech Nepal',
+          style: TextStyle(color: Color(0xff3D3D3D)),
+        ),
+        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
+      ),
+      ListTile(
+        leading: Icon(
+          Icons.person,
+          color: Colors.black,
+          size: 40.0,
+        ),
+        title: Text('Vagwan Mandal'),
+        subtitle: Text(
+          'Deltatech Nepal',
+          style: TextStyle(color: Color(0xff3D3D3D)),
+        ),
+        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
+      ),
+      ListTile(
+        leading: Icon(
+          Icons.person,
+          color: Colors.black,
+          size: 40.0,
+        ),
+        title: Text('Vagwan Mandal'),
+        subtitle: Text(
+          'Deltatech Nepal',
+          style: TextStyle(color: Color(0xff3D3D3D)),
+        ),
+        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
+      ),
+      ListTile(
+        leading: Icon(
+          Icons.person,
+          color: Colors.black,
+          size: 40.0,
+        ),
+        title: Text('Vagwan Mandal'),
+        subtitle: Text(
+          'Deltatech Nepal',
+          style: TextStyle(color: Color(0xff3D3D3D)),
+        ),
+        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
+      ),
+      ListTile(
+        leading: Icon(
+          Icons.person,
+          color: Colors.black,
+          size: 40.0,
+        ),
+        title: Text('Vagwan Mandal'),
+        subtitle: Text(
+          'Deltatech Nepal',
+          style: TextStyle(color: Color(0xff3D3D3D)),
+        ),
+        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
+      ),
+    ],
+  );
+  return listView;
+}
+
+Widget getOrganization() {
+  var listView = ListView(
+    children: <Widget>[
+      ListTile(
+        leading: Icon(
+          FontAwesomeIcons.solidBuilding,
+          color: Color(0xff101010),
+        ),
+        title: Text('Deltatech Nepal'),
+        subtitle: Text(
+          'Nepal',
+          style: TextStyle(
+            color: Color(0xff3D3D3D),
+          ),
+        ),
+      ),
+      ListTile(
+        leading: Icon(
+          FontAwesomeIcons.solidBuilding,
+          color: Color(0xff101010),
+        ),
+        title: Text('Golchha org'),
+        subtitle: Text(
+          'Nepal',
+          style: TextStyle(
+            color: Color(0xff3D3D3D),
+          ),
+        ),
+      ),
+      ListTile(
+        leading: Icon(
+          FontAwesomeIcons.solidBuilding,
+          color: Color(0xff101010),
+        ),
+        title: Text('Hulash Wire'),
+        subtitle: Text(
+          'Nepal',
+          style: TextStyle(
+            color: Color(0xff3D3D3D),
+          ),
+        ),
+      ),
+      ListTile(
+        leading: Icon(
+          FontAwesomeIcons.solidBuilding,
+          color: Color(0xff101010),
+        ),
+        title: Text('Royel xx'),
+        subtitle: Text(
+          'Nepal',
+          style: TextStyle(
+            color: Color(0xff3D3D3D),
+          ),
+        ),
+      ),
+    ],
+  );
+  return listView;
+}
+
 class DataSearch extends SearchDelegate<String> {
   final cities = [
-  'Kathmandu',
-  'Pokhara',
-  'Lalitpur',
-  'Bharatpur',
-  'Biratnagar',
-  'Birgunj',
-  'Janakpur',
-  'Ghorahi',
-  'Hetauda',
-  'Dhangadhi',
-  'Tulsipur',
-  'Itahari',
-  'Nepalgunj',
-  'Butwal',
-  'Dharan'
+    'Kathmandu',
+    'Pokhara',
+    'Lalitpur',
+    'Bharatpur',
+    'Biratnagar',
+    'Birgunj',
+    'Janakpur',
+    'Ghorahi',
+    'Hetauda',
+    'Dhangadhi',
+    'Tulsipur',
+    'Itahari',
+    'Nepalgunj',
+    'Butwal',
+    'Dharan'
   ];
   final recentCities = [
     'Kathmandu',
@@ -47,13 +219,16 @@ class DataSearch extends SearchDelegate<String> {
     'Bharatpur',
     'Biratnagar'
   ];
-  
+
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
-      IconButton(icon: Icon(Icons.clear), onPressed: () {
-        query = '';
-      },),
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      ),
     ];
   }
 
@@ -66,8 +241,7 @@ class DataSearch extends SearchDelegate<String> {
         ),
         onPressed: () {
           close(context, null);
-        }
-    );
+        });
   }
 
   @override
@@ -76,106 +250,43 @@ class DataSearch extends SearchDelegate<String> {
       child: Container(
         height: 100.0,
         width: 100.0,
-          child: Card(
-            color: Colors.red,
-            child: Center(
-              child: Text(query),
-            ),
+        child: Card(
+          color: Colors.red,
+          child: Center(
+            child: Text(query),
           ),
+        ),
       ),
     );
   }
+
   @override
   Widget buildSuggestions(BuildContext context) {
-    final  suggestionList = query.isEmpty
-        ?recentCities
-        :cities.where((p) => p.startsWith(query)).toList();
+    final suggestionList = query.isEmpty
+        ? recentCities
+        : cities.where((p) => p.startsWith(query)).toList();
 
-    return ListView.builder( itemBuilder: (context,index) => ListTile(
-      onTap: () {
-        showResults(context);
-      },
-      leading: Icon(Icons.location_city),
-      title: RichText(
-        text : TextSpan(
-            text: suggestionList[index].substring(0,query.length),
-            style: TextStyle(
-                color: Colors.black,fontWeight: FontWeight.bold),
-            children: [
-              TextSpan(
-                  text: suggestionList[index].substring(query.length),
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+            onTap: () {
+              showResults(context);
+            },
+            leading: Icon(Icons.person),
+            title: RichText(
+              text: TextSpan(
+                  text: suggestionList[index].substring(0, query.length),
                   style: TextStyle(
-                      color: Colors.grey)),
-            ]),
-      ),
-    ),
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                  children: [
+                    TextSpan(
+                        text: suggestionList[index].substring(query.length),
+                        style: TextStyle(color: Colors.grey)),
+                  ]),
+            ),
+            subtitle: Text('Deltatech Nepal'),
+            trailing: Icon(Icons.call),
+          ),
       itemCount: suggestionList.length,
     );
   }
 }
-
-class ProductAdmin extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-        return DefaultTabController(
-            length: 2,
-            child: Scaffold(
-              body: TabBarView(
-                children: <Widget>[ProductCreate(), ProductList()],
-              ),
-              appBar: AppBar(
-                title: Text('Home'),
-                actions: <Widget>[
-                  Stack(
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.shopping_cart),
-                        onPressed: () {},
-                      ),
-                      Container(
-                        height: 35,
-                        width: 60,
-                        padding: EdgeInsets.only(right: 10),
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          alignment: Alignment.center,
-                          padding: EdgeInsets.all(2),
-                          decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(10))),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-                bottom: TabBar(tabs: <Widget>[
-                  Tab(
-                    text: 'Create Product',
-                  ),
-                  Tab(
-                    text: 'Product List',
-                  ),
-                ]),
-              ),
-            ));
-  }
-}
-
-class ProductCreate extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class ProductList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-

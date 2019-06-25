@@ -17,7 +17,8 @@ dependencies:
   flutter_country_picker: ^0.1.4
   frideos: ^0.6.1
   image_picker: ^0.6.0+9
-
+  font_awesome_flutter: ^8.2.0
+  flutter_svg: ^0.12.4
 
 dev_dependencies:
   flutter_test:
@@ -28,4 +29,9 @@ flutter:
   uses-material-design: true
   assets:
    - images/profile.png
+   - images/icons/dashboard.svg
+   - images/icons/user.svg
+   - images/sonatech.png
+   - images/icons/location.svg
+   - images/icons/vector.svg
 

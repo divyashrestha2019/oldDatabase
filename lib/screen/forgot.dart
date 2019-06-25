@@ -27,23 +27,21 @@ class _ForgotScreenState extends State<ForgotScreen> {
                 child: Column(
                   children: <Widget>[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text('Delta',
+                        Text('WOW',
                           style: TextStyle(
                             color: Colors.green,
                             fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text('SalesCRM',
-                      style: TextStyle(
-                        color: Colors.deepOrangeAccent,
-                        fontSize: 30.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                        Text('DealMaster',
+                          style: TextStyle(
+                            color: Colors.deepOrangeAccent,
+                            fontSize: 30.0,
+                          ),),
+                      ],
                     ),
-                    ],
-                   ),
                   ],
                 ),
               ),

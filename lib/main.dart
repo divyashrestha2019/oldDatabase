@@ -6,6 +6,8 @@ import 'package:database/screen/add_person.dart';
 import 'package:database/screen/profille.dart';
 import 'package:database/screen/search.dart';
 import 'package:database/dynamic_form/dynamic_fields.dart';
+import 'package:database/screen/sonatech.dart';
+import 'package:database/screen/activity.dart';
 
 void main() => runApp(DeltaCrm());
 
@@ -15,13 +17,14 @@ class DeltaCrm extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'sans serif'),
       /*theme: ThemeData.dark().copyWith(
         textTheme: TextTheme(
           body1: TextStyle(color: Colors.black54),
         ),*/
       // ),
-      home: Profile(),
-      initialRoute: Profile.id,
+      home: Activity(),
+      initialRoute: Activity.id,
       routes: {
         LoginScreen.id:(context) => LoginScreen(),
         ForgotScreen.id:(context) => ForgotScreen(),
@@ -30,6 +33,7 @@ class DeltaCrm extends StatelessWidget {
         Profile.id:(context) => Profile(),
         Search.id:(context) =>Search(),
         DynamicFieldsPage.id:(context)=>DynamicFieldsPage(),
+        Sonatech.id:(context) => Sonatech(),
       },
     );
   }
