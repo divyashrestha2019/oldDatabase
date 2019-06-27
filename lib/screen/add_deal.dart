@@ -339,40 +339,35 @@ class _AddDealState extends State<AddDeal> {
                     ),
                     const SizedBox(height: 24.0),
                     DropdownButtonHideUnderline(
-                      child: Container(
-                        child: FormBuilderDropdown(
-                          attribute: "tag",
-                          decoration: InputDecoration(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 4.0),
+                                horizontal: 15.0, vertical: 20.0),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(10.0),
                               ),
-                              borderSide:
-                              BorderSide(color: Colors.white, width: 0.1),
+                              borderSide: BorderSide(
+                                  color: Colors.white, width: 0.1),
                             ),
                             filled: true,
-                            fillColor: Color(0xffD2E8E6),
                             icon: Icon(
-                              FontAwesomeIcons.chartLine,
+                              FontAwesomeIcons.hashtag,
                               color: Colors.black,
                               size: 30.0,
                             ),
-                            labelText: 'Add Tags',
+                            labelText: 'Tag',
                             labelStyle: TextStyle(
                                 fontSize: 18.0,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
+                            fillColor: Color(0xffD2E8E6),
                           ),
-                          initialValue: 'Lead In',
-                          items: ['Lead In', 'Lost', 'Other']
-                              .map((person) => DropdownMenuItem(
-                              value: person, child: Text("$person")))
-                              .toList(),
+                          maxLines: 1,
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
