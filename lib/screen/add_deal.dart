@@ -71,9 +71,10 @@ class _AddDealState extends State<AddDeal> {
                             icon: Icon(
                               FontAwesomeIcons.solidUser,
                               color: Colors.black,
-                              size: 30.0,
+                              size: 20.0,
                             ),
                             labelText: 'Contact Name',
+                            alignLabelWithHint: true,
                             labelStyle: TextStyle(
                                 fontSize: 18.0,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
@@ -110,7 +111,7 @@ class _AddDealState extends State<AddDeal> {
                             icon: Icon(
                               FontAwesomeIcons.solidBuilding,
                               color: Colors.black,
-                              size: 30.0,
+                              size: 20.0,
                             ),
                             labelText: 'Organization Name',
                             labelStyle: TextStyle(
@@ -145,7 +146,7 @@ class _AddDealState extends State<AddDeal> {
                             icon: Icon(
                               FontAwesomeIcons.solidUser,
                               color: Colors.black,
-                              size: 30.0,
+                              size: 20.0,
                             ),
                             labelText: 'Owner',
                             labelStyle: TextStyle(
@@ -186,7 +187,7 @@ class _AddDealState extends State<AddDeal> {
                                     icon: Icon(
                                       FontAwesomeIcons.dollarSign,
                                       color: Colors.black,
-                                      size: 30.0,
+                                      size: 20.0,
                                     ),
                                     labelText: 'Worth',
                                     labelStyle: TextStyle(
@@ -258,7 +259,7 @@ class _AddDealState extends State<AddDeal> {
                             icon: Icon(
                               FontAwesomeIcons.alignLeft,
                               color: Colors.black,
-                              size: 30.0,
+                              size: 20.0,
                             ),
                             labelText: 'Select Pipelline',
                             labelStyle: TextStyle(
@@ -293,7 +294,7 @@ class _AddDealState extends State<AddDeal> {
                             icon: Icon(
                               FontAwesomeIcons.chartLine,
                               color: Colors.black,
-                              size: 30.0,
+                              size: 20.0,
                             ),
                             labelText: 'Stage',
                             labelStyle: TextStyle(
@@ -329,7 +330,8 @@ class _AddDealState extends State<AddDeal> {
                           labelStyle: TextStyle(
                               fontSize: 18.0,
                               color: Color.fromRGBO(61, 61, 61, 1)),
-                          icon: Icon(FontAwesomeIcons.solidCalendarAlt,color: Colors.black),
+                          icon: Icon(FontAwesomeIcons.solidCalendarAlt,
+                              color: Colors.black,size: 20.0,),
                         ),
                         initialValue: DateTime.now(),
                         onSaved: (value) {
@@ -356,7 +358,7 @@ class _AddDealState extends State<AddDeal> {
                             icon: Icon(
                               FontAwesomeIcons.hashtag,
                               color: Colors.black,
-                              size: 30.0,
+                              size: 20.0,
                             ),
                             labelText: 'Tag',
                             labelStyle: TextStyle(

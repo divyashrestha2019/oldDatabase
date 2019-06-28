@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:database/layout/makeButton.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:database/screen/profille.dart';
 
 
 class Sonatech extends StatelessWidget {
@@ -123,7 +124,9 @@ class Scroller extends StatelessWidget {
                   child: RaisedButton(
                     color: Colors.white,
                     elevation: 12,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, Profile.id);
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(

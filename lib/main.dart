@@ -7,6 +7,8 @@ import 'package:database/screen/profille.dart';
 import 'package:database/screen/search.dart';
 import 'package:database/screen/sonatech.dart';
 import 'package:database/screen/activity.dart';
+import 'package:database/screen/add_organization.dart';
+import 'package:database/screen/add_activity.dart';
 
 
 void main() => runApp(DeltaCrm());
@@ -23,8 +25,8 @@ class DeltaCrm extends StatelessWidget {
           body1: TextStyle(color: Colors.black54),
         ),*/
       // ),
-      home: AddDeal(),
-      initialRoute: AddDeal.id,
+      home: AddActivity(),
+      initialRoute: AddActivity.id,
       routes: {
         LoginScreen.id:(context) => LoginScreen(),
         ForgotScreen.id:(context) => ForgotScreen(),
@@ -34,6 +36,8 @@ class DeltaCrm extends StatelessWidget {
         Search.id:(context) =>Search(),
         Sonatech.id:(context) => Sonatech(),
         Activity.id:(context) => Activity(),
+        AddOrganization.id:(context)=>AddOrganization(),
+        AddActivity.id:(context)=>AddActivity(),
       },
     );
   }
