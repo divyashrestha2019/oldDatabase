@@ -33,6 +33,7 @@ class PersonDetailState extends State<PersonDetail>
   TextEditingController phoneController = TextEditingController();
   String _phone;
 
+
   PersonDetailState(this.person, this.appBarTitle);
 
   @override
@@ -43,10 +44,12 @@ class PersonDetailState extends State<PersonDetail>
     emailController.text = person.email;
     phoneController.text = person.phone;
 
+    double _width = MediaQuery.of(context).size.width*0.82;
+
     final addEmail = Padding(
-      padding: const EdgeInsets.only(left: 31.0),
+      padding: const EdgeInsets.only(left: 31.0,right: 8.0),
       child: SizedBox(
-        width: 285.0,
+        width: 260.0,
         height: 50.0,
         child: RaisedButton(
           child: Text(
@@ -69,7 +72,7 @@ class PersonDetailState extends State<PersonDetail>
       ),
     );
     final addPhone = Padding(
-      padding: const EdgeInsets.only(left: 31.0),
+      padding: const EdgeInsets.only(left: 31.0,right: 8.0),
       child: SizedBox(
         width: 285.0,
         height: 50.0,
@@ -164,7 +167,6 @@ class PersonDetailState extends State<PersonDetail>
                         color: Color.fromRGBO(61, 61, 61, 1)),
                     fillColor: Color(0xffD2E8E6),
                     hintText: "Santosh Adhikari",
-                    hintMaxLines: 2,
                     alignLabelWithHint: false,
                   ),
                   maxLines: 1,
@@ -172,33 +174,41 @@ class PersonDetailState extends State<PersonDetail>
               ),
               const SizedBox(height: 24.0),
               //organization name
-              ListTile(
-                leading: Icon(FontAwesomeIcons.solidBuilding,
+              Row(children: <Widget>[
+                 Icon(FontAwesomeIcons.solidBuilding,
                   color: Colors.black,
                   size: 20.0,),
-                title: Container(
-                  height: 55.0,
-                  padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xffD2E8E6),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0),
-                    ),
+                 SizedBox(width: 8.0,),
+                 Padding(
+                   padding: const EdgeInsets.only(left:8.0),
+                   child: Container(
+                    height: 55.0,
+                    width: _width,
+                    padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xffD2E8E6),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0),
+                      ),
 
-                  ),
-                  child: DropdownButton(
-                      value: person.organization,
-                      onChanged: (valueSelectedByUser) {
-                        setState(() {
-                          debugPrint('User selected $valueSelectedByUser');
-                          updateOrg(valueSelectedByUser);
-                        });
-                      },
-                    items: ['SDF Group', 'Deltatech Nepal', 'Other']
-                        .map((organizationName) => DropdownMenuItem(
-                        value: organizationName, child: Text(organizationName)))
-                        .toList(),
-                  ),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          value: person.organization,
+                          onChanged: (valueSelectedByUser) {
+                            setState(() {
+                              debugPrint('User selected $valueSelectedByUser');
+                              updateOrg(valueSelectedByUser);
+                            });
+                          },
+                        items: ['SDF Group', 'Deltatech Nepal', 'Other']
+                            .map((organizationName) => DropdownMenuItem(
+                            value: organizationName, child: Text(organizationName)))
+                            .toList(),
+                      ),
+                    ),
                 ),
+                 ),
+              ],
               ),
               //Email
               const SizedBox(height: 24.0),
@@ -294,70 +304,93 @@ class PersonDetailState extends State<PersonDetail>
               const SizedBox(height: 24.0),
 
               // Fourth Element
-              ListTile(
-                leading: Icon(FontAwesomeIcons.mapMarked,
+              Row(
+                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                 Icon(FontAwesomeIcons.mapMarked,
                   color: Colors.black,
                   size: 20.0,),
-                title: Container(
-                  height: 55.0,
-                  padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xffD2E8E6),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0),
+                 SizedBox(width: 8.0,),
+                 Padding(
+                   padding: const EdgeInsets.only(left:8.0),
+                   child: Container(
+                    height: 55.0,
+                    width: _width,
+                    padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xffD2E8E6),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0),
                 ),
 
               ),
-                  child: DropdownButton(
-                      items: _cities.map((String dropDownStringItem) {
-                        return DropdownMenuItem<String>(
-                          value: dropDownStringItem,
-                          child: Text(dropDownStringItem),
-                        );
-                      }).toList(),
-                      style: TextStyle(color: Color.fromRGBO(61, 61, 61, 1),fontSize: 15.0),
-                      value: person.city,
-                      onChanged: (valueSelectedByUser) {
-                        setState(() {
-                          debugPrint('User selected $valueSelectedByUser');
-                          updateCity(valueSelectedByUser);
-                        });
-                      }),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          items: _cities.map((String dropDownStringItem) {
+                            return DropdownMenuItem<String>(
+                              value: dropDownStringItem,
+                              child: Text(dropDownStringItem),
+                            );
+                          }).toList(),
+                          style: TextStyle(color: Color.fromRGBO(61, 61, 61, 1),fontSize: 15.0),
+                          value: person.city,
+                          onChanged: (valueSelectedByUser) {
+                            setState(() {
+                              debugPrint('User selected $valueSelectedByUser');
+                              updateCity(valueSelectedByUser);
+                            });
+                          }),
+                    ),
                 ),
+                 ),
+                ],
               ),
+
               const SizedBox(height: 24.0),
               //fifth
-              ListTile(
-                leading:Icon(
+              Row(
+                children: <Widget>[
+                //contentPadding: EdgeInsets.symmetric(horizontal: 100.0),
+                Icon(
                   FontAwesomeIcons.globeAsia,
                   color: Colors.black,
                   size: 20.0,
                 ),
-                title: Container(
-                  height: 55.0,
-                  padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xffD2E8E6),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0),
+                  SizedBox(width: 8.0,),
+                  //contentPadding: EdgeInsets.only(right: 0),
+                 Padding(
+                   padding: const EdgeInsets.only(left:8.0),
+                   child: Container(
+                    height: 55.0,
+                    width: _width,
+                    padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
+                    decoration: BoxDecoration(
+                      color: Color(0xffD2E8E6),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0),
+                      ),
                     ),
-                  ),
-                  child: DropdownButton(
-                      items: _countries.map((String dropDownStringItem) {
-                        return DropdownMenuItem<String>(
-                          value: dropDownStringItem,
-                          child: Text(dropDownStringItem),
-                        );
-                      }).toList(),
-                      style: TextStyle(color: Color.fromRGBO(61, 61, 61, 1),fontSize: 15.0),
-                      value: person.country,
-                      onChanged: (valueSelectedByUser) {
-                        setState(() {
-                          debugPrint('User selected $valueSelectedByUser');
-                          updateCountry(valueSelectedByUser);
-                        });
-                      }),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          items: _countries.map((String dropDownStringItem) {
+                            return DropdownMenuItem<String>(
+                              value: dropDownStringItem,
+                              child: Text(dropDownStringItem),
+                            );
+                          }).toList(),
+                          style: TextStyle(color: Color.fromRGBO(61, 61, 61, 1),fontSize: 15.0),
+                          value: person.country,
+                          onChanged: (valueSelectedByUser) {
+                            setState(() {
+                              debugPrint('User selected $valueSelectedByUser');
+                              updateCountry(valueSelectedByUser);
+                            });
+                          }),
+                    ),
                 ),
+                 ),
+                ],
               ),
               //sixth
+              SizedBox(height: 24.0,),
             ],
           ),
         ),
