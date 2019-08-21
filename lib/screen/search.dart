@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:database/layout/makeButton.dart';
+import 'package:database/screen/add_organization.dart';
+import 'package:database/screen/add_person.dart';
+import 'package:database/screen/org/org_list.dart';
+import 'package:database/screen/person/list.dart';
 
 class Search extends StatelessWidget {
   static const String id = 'search_screen';
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
@@ -53,146 +58,15 @@ class Search extends StatelessWidget {
               ),
             ),
             body: TabBarView(children: [
-              getPeople(),
-              getOrganization(),
+              PersonList(),
+              OrgList(),
             ]),
+            bottomNavigationBar: MakeButton(),
           )),
     );
   }
 }
 
-Widget getPeople() {
-  var listView = ListView(
-    children: <Widget>[
-      ListTile(
-        leading: Icon(
-          Icons.person,
-          color: Colors.black,
-          size: 40.0,
-        ),
-        title: Text('Vagwan Mandal'),
-        subtitle: Text(
-          'Deltatech Nepal',
-          style: TextStyle(color: Color(0xff3D3D3D)),
-        ),
-        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
-      ),
-      ListTile(
-        leading: Icon(
-          Icons.person,
-          color: Colors.black,
-          size: 40.0,
-        ),
-        title: Text('Vagwan Mandal'),
-        subtitle: Text(
-          'Deltatech Nepal',
-          style: TextStyle(color: Color(0xff3D3D3D)),
-        ),
-        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
-      ),
-      ListTile(
-        leading: Icon(
-          Icons.person,
-          color: Colors.black,
-          size: 40.0,
-        ),
-        title: Text('Vagwan Mandal'),
-        subtitle: Text(
-          'Deltatech Nepal',
-          style: TextStyle(color: Color(0xff3D3D3D)),
-        ),
-        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
-      ),
-      ListTile(
-        leading: Icon(
-          Icons.person,
-          color: Colors.black,
-          size: 40.0,
-        ),
-        title: Text('Vagwan Mandal'),
-        subtitle: Text(
-          'Deltatech Nepal',
-          style: TextStyle(color: Color(0xff3D3D3D)),
-        ),
-        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
-      ),
-      ListTile(
-        leading: Icon(
-          Icons.person,
-          color: Colors.black,
-          size: 40.0,
-        ),
-        title: Text('Vagwan Mandal'),
-        subtitle: Text(
-          'Deltatech Nepal',
-          style: TextStyle(color: Color(0xff3D3D3D)),
-        ),
-        trailing: Icon(FontAwesomeIcons.phone, color: Color(0xff101010)),
-      ),
-    ],
-  );
-  return listView;
-}
-
-Widget getOrganization() {
-  var listView = ListView(
-    children: <Widget>[
-      ListTile(
-        leading: Icon(
-          FontAwesomeIcons.solidBuilding,
-          color: Color(0xff101010),
-        ),
-        title: Text('Deltatech Nepal'),
-        subtitle: Text(
-          'Nepal',
-          style: TextStyle(
-            color: Color(0xff3D3D3D),
-          ),
-        ),
-      ),
-      ListTile(
-        leading: Icon(
-          FontAwesomeIcons.solidBuilding,
-          color: Color(0xff101010),
-        ),
-        title: Text('Golchha org'),
-        subtitle: Text(
-          'Nepal',
-          style: TextStyle(
-            color: Color(0xff3D3D3D),
-          ),
-        ),
-      ),
-      ListTile(
-        leading: Icon(
-          FontAwesomeIcons.solidBuilding,
-          color: Color(0xff101010),
-        ),
-        title: Text('Hulash Wire'),
-        subtitle: Text(
-          'Nepal',
-          style: TextStyle(
-            color: Color(0xff3D3D3D),
-          ),
-        ),
-      ),
-      ListTile(
-        leading: Icon(
-          FontAwesomeIcons.solidBuilding,
-          color: Color(0xff101010),
-        ),
-        title: Text('Royel xx'),
-        subtitle: Text(
-          'Nepal',
-          style: TextStyle(
-            color: Color(0xff3D3D3D),
-          ),
-        ),
-      ),
-    ],
-  );
-  return listView;
-}
 
 class DataSearch extends SearchDelegate<String> {
   final cities = [

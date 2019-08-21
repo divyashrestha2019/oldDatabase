@@ -74,7 +74,8 @@ class _AddPersonState extends State<AddPerson> {
                             labelText: 'Contact Name',
                             alignLabelWithHint: true,
                             labelStyle: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 15.0,
+                                height: 1.5,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
                           ),
                           initialValue: 'Santosh Adhikari',
@@ -113,7 +114,8 @@ class _AddPersonState extends State<AddPerson> {
                             ),
                             labelText: 'Organization Name',
                             labelStyle: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 15.0,
+                                height: 1.5,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
                           ),
                           initialValue: 'SDF Group',
@@ -148,7 +150,8 @@ class _AddPersonState extends State<AddPerson> {
                             ),
                             labelText: 'Email Address',
                             labelStyle: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 15.0,
+                                height: 1.5,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
                             fillColor: Color(0xffD2E8E6),
                           ),
@@ -159,9 +162,9 @@ class _AddPersonState extends State<AddPerson> {
                     ),
                     const SizedBox(height: 24.0),
                     Padding(
-                      padding: const EdgeInsets.only(left:40.0),
+                      padding: const EdgeInsets.only(left:31.0),
                       child: SizedBox(
-                        width: 280.0,
+                        width: 285.0,
                         height: 50.0,
                         child:
                           RaisedButton(
@@ -196,7 +199,8 @@ class _AddPersonState extends State<AddPerson> {
                             ),
                             labelText: 'Phone Number',
                             labelStyle: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 15.0,
+                                height: 1.5,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
                             fillColor: Color(0xffD2E8E6),
                           ),
@@ -219,9 +223,9 @@ class _AddPersonState extends State<AddPerson> {
                     ),*/
                    // const SizedBox(height: 24.0),
                     Padding(
-                      padding: const EdgeInsets.only(left:40.0),
+                      padding: const EdgeInsets.only(left:31.0),
                       child: SizedBox(
-                        width: 280.0,
+                        width: 285.0,
                         height: 50.0,
                         child:
                         RaisedButton(
@@ -248,6 +252,7 @@ class _AddPersonState extends State<AddPerson> {
                                 color: Colors.white, width: 0.1),
                           ),
                           filled: true,
+                          fillColor: Color(0xffD2E8E6),
                           icon: Icon(
                             FontAwesomeIcons.globeAsia,
                             color: Colors.black,
@@ -280,7 +285,8 @@ class _AddPersonState extends State<AddPerson> {
                             ),
                             labelText: 'City',
                             labelStyle: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 15.0,
+                                height: 1.5,
                                 color: Color.fromRGBO(61, 61, 61, 1)),
                           ),
                           initialValue: 'Biratnagar',

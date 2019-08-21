@@ -45,190 +45,194 @@ class _ProfileState extends State<Profile> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Images(),
-              FormBuilder(
-                autovalidate: true,
-                key: _fbKey,
-                child: Column(
-                  children: <Widget>[
-                    const SizedBox(height: 24.0),
-                    DropdownButtonHideUnderline(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 20.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          Images(),
+          FormBuilder(
+            autovalidate: true,
+            key: _fbKey,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: <Widget>[
+                  const SizedBox(height: 24.0),
+                  DropdownButtonHideUnderline(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.text,
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 20.0),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
                             ),
-                            filled: true,
-                            icon: Icon(
-                              FontAwesomeIcons.solidUser,
-                              color: Colors.black,
-                              size: 20.0,
-                            ),
-                            labelText: 'Full Name',
-                            labelStyle: TextStyle(
-                                fontSize: 18.0,
-                                color: Color.fromRGBO(61, 61, 61, 1)),
-                            fillColor: Color(0xffD2E8E6),
+                            borderSide:
+                            BorderSide(color: Colors.white, width: 0.1),
                           ),
-                          initialValue: 'Santosh Adhikari',
-                          maxLines: 1,
+                          filled: true,
+                          icon: Icon(
+                            FontAwesomeIcons.solidUser,
+                            color: Colors.black,
+                            size: 20.0,
+                          ),
+                          labelText: 'Full Name',
+                          labelStyle: TextStyle(
+                              fontSize: 15.0,
+                              height: 1.5,
+                              color: Color.fromRGBO(61, 61, 61, 1)),
+                          fillColor: Color(0xffD2E8E6),
                         ),
+                        initialValue: 'Santosh Adhikari',
+                        maxLines: 1,
                       ),
                     ),
-                    const SizedBox(height: 24.0),
-                    DropdownButtonHideUnderline(
-                      child: Container(
-                        child: FormBuilderDropdown(
-                          attribute: "role",
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 4.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                  ),
+                  const SizedBox(height: 24.0),
+                  DropdownButtonHideUnderline(
+                    child: Container(
+                      child: FormBuilderDropdown(
+                        attribute: "role",
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 4.0),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
                             ),
-                            filled: true,
-                            fillColor: Color(0xffD2E8E6),
-                            icon: Icon(
-                              FontAwesomeIcons.globeAsia,
-                              color: Colors.black,
-                              size: 20.0,
-                            ),
-                            labelText: 'Role',
-                            labelStyle: TextStyle(
-                                fontSize: 18.0,
-                                color: Color.fromRGBO(61, 61, 61, 1)),
+                            borderSide:
+                            BorderSide(color: Colors.white, width: 0.1),
                           ),
-                          initialValue: 'Admin',
-                          items: ['Admin', 'Manager', 'Other']
-                              .map((person) => DropdownMenuItem(
-                                  value: person, child: Text("$person")))
-                              .toList(),
+                          filled: true,
+                          fillColor: Color(0xffD2E8E6),
+                          icon: Icon(
+                            FontAwesomeIcons.globeAsia,
+                            color: Colors.black,
+                            size: 20.0,
+                          ),
+                          labelText: 'Role',
+                          labelStyle: TextStyle(
+                              fontSize: 15.0,
+                              height: 1.5,
+                              color: Color.fromRGBO(61, 61, 61, 1)),
                         ),
+                        initialValue: 'Admin',
+                        items: ['Admin', 'Manager', 'Other']
+                            .map((person) => DropdownMenuItem(
+                            value: person, child: Text("$person")))
+                            .toList(),
                       ),
                     ),
-                    const SizedBox(height: 24.0),
-                    DropdownButtonHideUnderline(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 20.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                  ),
+                  const SizedBox(height: 24.0),
+                  DropdownButtonHideUnderline(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 20.0),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
                             ),
-                            filled: true,
-                            icon: Icon(
-                              FontAwesomeIcons.solidEnvelope,
-                              color: Colors.black,
-                              size: 20.0,
-                            ),
-                            labelText: 'Email Address',
-                            labelStyle: TextStyle(
-                                fontSize: 18.0,
-                                color: Color.fromRGBO(61, 61, 61, 1)),
-                            fillColor: Color(0xffD2E8E6),
+                            borderSide:
+                            BorderSide(color: Colors.white, width: 0.1),
                           ),
-                          initialValue: 'Admin',
-                          maxLines: 1,
+                          filled: true,
+                          icon: Icon(
+                            FontAwesomeIcons.solidEnvelope,
+                            color: Colors.black,
+                            size: 20.0,
+                          ),
+                          labelText: 'Email Address',
+                          labelStyle: TextStyle(
+                              fontSize: 15.0,
+                              height: 1.5,
+                              color: Color.fromRGBO(61, 61, 61, 1)),
+                          fillColor: Color(0xffD2E8E6),
                         ),
+                        initialValue: 'Admin',
+                        maxLines: 1,
                       ),
                     ),
-                    const SizedBox(height: 24.0),
-                    DropdownButtonHideUnderline(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 20.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                  ),
+                  const SizedBox(height: 24.0),
+                  DropdownButtonHideUnderline(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 20.0),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
                             ),
-                            filled: true,
-                            icon: Icon(
-                              Icons.phone,
-                              color: Colors.black,
-                              size: 20.0,
-                            ),
-                            labelText: 'Phone Number',
-                            labelStyle: TextStyle(
-                                fontSize: 18.0,
-                                color: Color.fromRGBO(61, 61, 61, 1)),
-                            fillColor: Color(0xffD2E8E6),
+                            borderSide:
+                            BorderSide(color: Colors.white, width: 0.1),
                           ),
-                          initialValue: '9829326110',
-                          maxLines: 1,
+                          filled: true,
+                          icon: Icon(
+                            Icons.phone,
+                            color: Colors.black,
+                            size: 20.0,
+                          ),
+                          labelText: 'Phone Number',
+                          labelStyle: TextStyle(
+                              fontSize: 15.0,
+                              height: 1.5,
+                              color: Color.fromRGBO(61, 61, 61, 1)),
+                          fillColor: Color(0xffD2E8E6),
                         ),
+                        initialValue: '9829326110',
+                        maxLines: 1,
                       ),
                     ),
-                    const SizedBox(height: 24.0),
-                    DropdownButtonHideUnderline(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 20.0),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10.0),
-                              ),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                  ),
+                  const SizedBox(height: 24.0),
+                  DropdownButtonHideUnderline(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 20.0),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
                             ),
-                            filled: true,
-                            icon: Icon(
-                              FontAwesomeIcons.solidBuilding,
-                              color: Colors.black,
-                              size: 20.0,
-                            ),
-                            labelText: 'Organization Name',
-                            labelStyle: TextStyle(
-                                fontSize: 18.0,
-                                color: Color.fromRGBO(61, 61, 61, 1)),
-                            fillColor: Color(0xffD2E8E6),
+                            borderSide:
+                            BorderSide(color: Colors.white, width: 0.1),
                           ),
-                          initialValue: 'SDK Group',
-                          maxLines: 1,
+                          filled: true,
+                          icon: Icon(
+                            FontAwesomeIcons.solidBuilding,
+                            color: Colors.black,
+                            size: 20.0,
+                          ),
+                          labelText: 'Organization Name',
+                          labelStyle: TextStyle(
+                              fontSize: 15.0,
+                              height: 1.5,
+                              color: Color.fromRGBO(61, 61, 61, 1)),
+                          fillColor: Color(0xffD2E8E6),
                         ),
+                        initialValue: 'SDK Group',
+                        maxLines: 1,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -250,7 +254,9 @@ class _ImagesState extends State<Images> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        SizedBox(
+        Container(
+          width: double.infinity,
+          height:250.0,
           child: _image == null
               ? Image(
             image: AssetImage('images/profile.png'),
@@ -258,11 +264,11 @@ class _ImagesState extends State<Images> {
           )
               : Image.file(
             _image,
-            height: 250.0,
             width: double.infinity,
             fit: BoxFit.cover,
           ),
         ),
+
         Positioned(
           right: 100.0,
           bottom: 30.0,

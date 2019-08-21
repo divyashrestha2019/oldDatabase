@@ -1,48 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:database/layout/makeButton.dart';
 import 'package:database/screen/add_activity.dart';
-class Activity extends StatefulWidget {
-  static const String id = 'activity_screen';
+
+class GetActivity extends StatefulWidget {
   @override
-  _ActivityState createState() => _ActivityState();
+  _GetActivityState createState() => _GetActivityState();
 }
 
-class _ActivityState extends State<Activity> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff108F87),
-        title: Text('Activity'),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(
-                FontAwesomeIcons.solidCalendarAlt,
-                color: Colors.white,
-              ),
-              onPressed: null),
-          IconButton(
-              icon: Icon(
-                FontAwesomeIcons.filter,
-                color: Colors.white,
-              ),
-              onPressed: null)
-        ],
-      ),
-      body: GetPeople(),
-      bottomNavigationBar: MakeButton(),
-    );
-  }
-}
-
-class GetPeople extends StatefulWidget {
-  @override
-  _GetPeopleState createState() => _GetPeopleState();
-}
-
-class _GetPeopleState extends State<GetPeople> {
+class _GetActivityState extends State<GetActivity> {
   bool flagCheck = false;
   bool flagCheck2 = false;
   bool flagCheck3 = false;

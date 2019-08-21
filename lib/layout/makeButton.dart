@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:database/screen/profille.dart';
+import 'package:database/screen/sonatech.dart';
 import 'package:database/screen/add_person.dart';
 import 'package:database/screen/add_deal.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:database/screen/search.dart';
+import 'package:database/screen/activity.dart';
 
 class MakeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60.0,
+      height: 50.0,
       child: BottomAppBar(
         clipBehavior: Clip.none,
         color: Colors.white,
@@ -59,7 +61,7 @@ class MakeButton extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, AddPerson.id);
+                    Navigator.pushNamed(context, Activity.id);
                   },
                 ),
                 flex: 1,
@@ -74,7 +76,7 @@ class MakeButton extends StatelessWidget {
                     ],
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, AddPerson.id);
+                    Navigator.pushNamed(context, Search.id);
                   },
                 ),
                 flex: 1,
@@ -84,7 +86,7 @@ class MakeButton extends StatelessWidget {
                   icon:
                       Icon(FontAwesomeIcons.ellipsisH, color: Color(0xff555555)),
                   onPressed: () {
-                    Navigator.pushNamed(context, Profile.id);
+                    Navigator.pushNamed(context, Sonatech.id);
                   },
                 ),
                 flex: 1,

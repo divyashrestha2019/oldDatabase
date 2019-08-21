@@ -64,7 +64,7 @@ class _AddDealState extends State<AddDeal> {
                                 Radius.circular(10.0),
                               ),
                               borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                              BorderSide(color: Colors.white, width: 0.1),
                             ),
                             filled: true,
                             fillColor: Color(0xffD2E8E6),
@@ -86,7 +86,7 @@ class _AddDealState extends State<AddDeal> {
                             'Other'
                           ]
                               .map((person) => DropdownMenuItem(
-                                  value: person, child: Text("$person")))
+                              value: person, child: Text("$person")))
                               .toList(),
                         ),
                       ),
@@ -104,7 +104,7 @@ class _AddDealState extends State<AddDeal> {
                                 Radius.circular(10.0),
                               ),
                               borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                              BorderSide(color: Colors.white, width: 0.1),
                             ),
                             filled: true,
                             fillColor: Color(0xffD2E8E6),
@@ -121,7 +121,7 @@ class _AddDealState extends State<AddDeal> {
                           initialValue: 'SDF Group',
                           items: ['SDF Group', 'Deltatech Nepal', 'Other']
                               .map((person) => DropdownMenuItem(
-                                  value: person, child: Text("$person")))
+                              value: person, child: Text("$person")))
                               .toList(),
                         ),
                       ),
@@ -139,7 +139,7 @@ class _AddDealState extends State<AddDeal> {
                                 Radius.circular(10.0),
                               ),
                               borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                              BorderSide(color: Colors.white, width: 0.1),
                             ),
                             filled: true,
                             fillColor: Color(0xffD2E8E6),
@@ -156,7 +156,7 @@ class _AddDealState extends State<AddDeal> {
                           initialValue: 'Admin',
                           items: ['Admin', 'Manager', 'Other']
                               .map((person) => DropdownMenuItem(
-                                  value: person, child: Text("$person")))
+                              value: person, child: Text("$person")))
                               .toList(),
                         ),
                       ),
@@ -229,8 +229,8 @@ class _AddDealState extends State<AddDeal> {
                                   initialValue: 'NPR',
                                   items: ['NPR', 'US', 'Other']
                                       .map((person) => DropdownMenuItem(
-                                          value: person,
-                                          child: Text("$person")))
+                                      value: person,
+                                      child: Text("$person")))
                                       .toList(),
                                 ),
                               ),
@@ -252,7 +252,7 @@ class _AddDealState extends State<AddDeal> {
                                 Radius.circular(10.0),
                               ),
                               borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                              BorderSide(color: Colors.white, width: 0.1),
                             ),
                             filled: true,
                             fillColor: Color(0xffD2E8E6),
@@ -269,7 +269,7 @@ class _AddDealState extends State<AddDeal> {
                           initialValue: 'Default',
                           items: ['Default', 'Hot Deal', 'Other']
                               .map((person) => DropdownMenuItem(
-                                  value: person, child: Text("$person")))
+                              value: person, child: Text("$person")))
                               .toList(),
                         ),
                       ),
@@ -287,7 +287,7 @@ class _AddDealState extends State<AddDeal> {
                                 Radius.circular(10.0),
                               ),
                               borderSide:
-                                  BorderSide(color: Colors.white, width: 0.1),
+                              BorderSide(color: Colors.white, width: 0.1),
                             ),
                             filled: true,
                             fillColor: Color(0xffD2E8E6),
@@ -304,7 +304,7 @@ class _AddDealState extends State<AddDeal> {
                           initialValue: 'Lead In',
                           items: ['Lead In', 'Lost', 'Other']
                               .map((person) => DropdownMenuItem(
-                                  value: person, child: Text("$person")))
+                              value: person, child: Text("$person")))
                               .toList(),
                         ),
                       ),
@@ -322,7 +322,7 @@ class _AddDealState extends State<AddDeal> {
                               Radius.circular(10.0),
                             ),
                             borderSide:
-                                BorderSide(color: Colors.white, width: 0.1),
+                            BorderSide(color: Colors.white, width: 0.1),
                           ),
                           filled: true,
                           fillColor: Color(0xffD2E8E6),
@@ -331,13 +331,13 @@ class _AddDealState extends State<AddDeal> {
                               fontSize: 18.0,
                               color: Color.fromRGBO(61, 61, 61, 1)),
                           icon: Icon(FontAwesomeIcons.solidCalendarAlt,
-                              color: Colors.black,size: 20.0,),
+                            color: Colors.black,size: 20.0,),
                         ),
                         initialValue: DateTime.now(),
                         onSaved: (value) {
                           debugPrint(value.toString());
                         },
-                        ),
+                      ),
                     ),
                     const SizedBox(height: 24.0),
                     DropdownButtonHideUnderline(
