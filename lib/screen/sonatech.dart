@@ -3,14 +3,85 @@ import 'package:database/layout/makeButton.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:database/screen/profille.dart';
 import 'package:database/screen/import_contact.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+import 'dart:io';
 
-class Sonatech extends StatelessWidget {
+class Sonatech extends StatefulWidget {
   static const String id = 'sonatech_screen';
+  @override
+  _SonatechState createState() => _SonatechState();
+}
 
-  // This widget is the root of your application.
+
+class _SonatechState extends State<Sonatech> {
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  bool isLoading = false;
+  String _token;
+
+  void initState() {
+    super.initState();
+    _getToken();
+  }
+  _showLoading() {
+    setState(() {
+      isLoading = true;
+    });
+  }
+  _hideLoading() {
+    setState(() {
+      isLoading = false;
+    });
+  }
+
+  _getToken() async {
+    SharedPreferences _sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      _token = _sharedPreferences.getString('token');
+    });
+  }
+
+  Future _profile() async {
+    final response =
+    await http.post("http://leadmgmtv2.deltatech.com.np/api/detail",
+     headers: {HttpHeaders.authorizationHeader: "Bearer "+_token.toString()});
+
+    print("Login Response" + response.body);
+
+    if (response.statusCode == 200) {
+      var body = json.decode(response.body);
+
+      String _name = (body["success"]["name"].toString().trim());
+      String _orgName = (body["success"]["company_name"].toString().trim());
+      String _phone = (body["success"]["phone"].toString().trim());
+      String _email = (body["success"]["email"].toString().trim());
+      String _image = (body["success"]["avatar"].toString().trim());
+      String _role = "Admin";
+
+
+
+      SharedPreferences _sharedPreferences =await SharedPreferences.getInstance();
+      _sharedPreferences.setString("name", _name);
+      _sharedPreferences.setString("orgName", _orgName);
+      _sharedPreferences.setString("phone", _phone);
+      _sharedPreferences.setString("email", _email);
+      _sharedPreferences.setString("image", _image);
+      _sharedPreferences.setString("role", _role);
+      _hideLoading();
+      Navigator.pushNamed(context, Profile.id);
+
+    } else {
+      _hideLoading();
+      final snackBar = SnackBar(
+          backgroundColor: Colors.red, content: Text("Something went wrong"));
+      _scaffold.currentState.showSnackBar(snackBar);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-   final emailButton =  Container(
+    final emailButton =  Container(
       height: 45.0,
       child: RaisedButton(
         color: Colors.white,
@@ -107,7 +178,8 @@ class Sonatech extends StatelessWidget {
                       color: Colors.white,
                       elevation: 12,
                       onPressed: () {
-                        Navigator.pushNamed(context, Profile.id);
+                        _showLoading();
+                        _profile();
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -307,6 +379,9 @@ class Sonatech extends StatelessWidget {
                       ),
                     ),
                   ),
+                  //circular
+                  _showCircularProgress(),
+
                   SizedBox(
                     height: 80,
                   ),
@@ -317,6 +392,16 @@ class Sonatech extends StatelessWidget {
         },
       ),
       bottomNavigationBar: MakeButton(),
+    );
+  }
+  Widget _showCircularProgress() {
+    if (isLoading) {
+      return Center(
+          child: CircularProgressIndicator(backgroundColor: Colors.teal));
+    }
+    return Container(
+      height: 0.0,
+      width: 0.0,
     );
   }
 }

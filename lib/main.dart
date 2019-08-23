@@ -29,8 +29,8 @@ static const String url = "http://leadmgmtv2.deltatech.com.np/api";
           body1: TextStyle(color: Colors.black54),
         ),*/
       // ),
-      home: Search(),
-      initialRoute: Search.id,
+      home: LoginPage(),
+      initialRoute: LoginPage.id,
       routes: {
         LoginPage.id:(context) => LoginPage(),
         Verification.id:(context) => Verification(),
